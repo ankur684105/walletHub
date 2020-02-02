@@ -22,24 +22,32 @@ public class functionalTest {
         driver.quit();
     }
 
-    @Test
-    public void testOne(){
+    @Test(dataProvider = "data-provider")
+    public void testOne(String id,String pwd){
         try{
             driver.get("https://www.facebook.com/");
-            pom.loginFb("testAuto@gmail.com","testPass");
+            pom.loginFb(id,pwd);
         }
         catch(Exception e){
             System.out.println("Something wrong with Credentials");
         }
     }
-    @Test
-    public void testTwo(){
+    @Test(dataProvider = "data-provider1")
+    public void testTwo(String id,String pwd){
         String input = "Feedback occurs when outputs of a system are routed back as inputs as part of a chain of cause-and-effect that forms a circuit or loop." +
                 "The system can then be said to feed back into itself. The notion of cause-and-effect has to be handled carefully when applied to feedback systems";
         driver.get("https://wallethub.com/profile/test-insurance-company-13732055i");
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         pom.postReview(input);
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        pom.loginWallet("sharmaankur001@gmail.com","Markanda@93");
+        pom.loginWallet(id,pwd);
+    }
+    @DataProvider(name = "data-provider")
+    public Object[][] dataProviderMethod() {
+        return new Object[][] { {"test@gmail.com","testPwd" }};
+    }
+    @DataProvider(name = "data-provider1")
+    public Object[][] dataProviderMethod1() {
+        return new Object[][] { { "sharmaankur001@gmail.com","Markanda@93"}};
     }
 }
