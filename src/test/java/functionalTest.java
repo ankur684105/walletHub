@@ -34,9 +34,8 @@ public class functionalTest {
     }
     @Test
     public void testTwo(){
-        String input = "SLF4J: Failed to load class \"org.slf4j.impl.StaticLoggerBinder\".\n" +
-                "SLF4J: Defaulting to no-operation (NOP) logger implementation\n" +
-                "SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.";
+        String input = "Feedback occurs when outputs of a system are routed back as inputs as part of a chain of cause-and-effect that forms a circuit or loop." +
+                "The system can then be said to feed back into itself. The notion of cause-and-effect has to be handled carefully when applied to feedback systems";
         driver.get("https://wallethub.com/profile/test-insurance-company-13732055i");
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         pom.postReview(input);
