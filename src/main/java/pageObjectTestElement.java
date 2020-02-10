@@ -53,5 +53,9 @@ public class pageObjectTestElement {
             System.out.println(e.getMessage());
         }
     }
-
+    
+    //new function added from child
+    public void printSampleFunction(String input){
+        System.out.println(input);
+    }
 }
